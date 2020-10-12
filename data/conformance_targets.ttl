@@ -1,0 +1,24 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ogcapi: <https://data.surroundaustralia.com/def/ogcapi/>
+
+
+<http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core>
+    a ogcapi:ConformanceTarget ;
+    dcterms:title "OGC API Conformance Class Core";
+.
+
+<http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30>
+    a ogcapi:ConformanceTarget ;
+    dcterms:title "Open API 3.0" ;
+    dcterms:description "The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection." ;
+.
+
+<http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html>
+    a ogcapi:ConformanceTarget ;
+    dcterms:title "OGC API Conformance Class HTML";
+.
+
+<http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson>
+    a ogcapi:ConformanceTarget ;
+    dcterms:title "OGC API Conformance Class GeoJSON";
+.

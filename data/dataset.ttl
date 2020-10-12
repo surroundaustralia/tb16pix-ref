@@ -1,0 +1,29 @@
+PREFIX catprez: <https://w3id.org/profile/catprez/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://w3id.org/dggs/tb16pix>
+    a dcat:Dataset ;
+    dcterms:title "TB16Pix Dataset"@en ;
+    dcterms:description """The reference dataset for the Testbed 16 (TB16) Pix version of the rHealPix DGGS grid system.
+
+TB16Pix uses parameterisation to minimise the Zone changes over Canada.
+
+#### Example Collection
+* [Grid, resolution 2](/collections/2)
+#### Example Feature
+* [Zone N05](/collections/2/items/N05)
+
+"""@en ;
+    prov:wasDerivedFrom <https://linked.data.gov.au/dataset/geofabric> ;
+    dcterms:contributor <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:created "2020-08-15"^^xsd:date ;
+    dcterms:modified "2020-10-12"^^xsd:date ;
+    dcterms:issued "2020-08-15"^^xsd:date ;
+    dcterms:publisher <https://surroundaustralia.com> ;
+    dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
+    catprez:servedBy <https://w3id.org/dggs/tb16pix-api> ;
+.

@@ -1,0 +1,132 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ogcapi: <https://data.surroundaustralia.com/def/ogcapi/>
+
+
+<https://w3id.org/dggs/tb16pix/grid/0>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 0"@en ;
+    dcterms:description "DGGS Grid, resolution 0. This grid contains the Zones N, O, P Q, R & S"@en ;
+    dcterms:identifier "g0" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/1>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 1"@en ;
+    dcterms:description "DGGS Grid, resolution 1. This grid contains the childran Zones of the Zones N, O, P Q, R & S, e.g. N0, N1, N2, ... R0 ... R7, R8 ..."@en ;
+    dcterms:identifier "g1" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/2>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 2"@en ;
+    dcterms:description "DGGS Grid, resolution 2. This grid contains the childran Zones of those in Grid 1"@en ;
+    dcterms:identifier "g2" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/3>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 3"@en ;
+    dcterms:description "DGGS Grid, resolution 3. This grid contains the childran Zones of those in Grid 2"@en ;
+    dcterms:identifier "g3" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/4>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 4"@en ;
+    dcterms:description "DGGS Grid, resolution 4. This grid contains the childran Zones of those in Grid 3"@en ;
+    dcterms:identifier "g4" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/5>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 5"@en ;
+    dcterms:description "DGGS Grid, resolution 5. This grid contains the childran Zones of those in Grid 4"@en ;
+    dcterms:identifier "g5" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/6>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 6"@en ;
+    dcterms:description "DGGS Grid, resolution 6. This grid contains the childran Zones of those in Grid 5"@en ;
+    dcterms:identifier "g6" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/7>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 7"@en ;
+    dcterms:description "DGGS Grid, resolution 7. This grid contains the childran Zones of those in Grid 6"@en ;
+    dcterms:identifier "g7" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/8>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 8"@en ;
+    dcterms:description "DGGS Grid, resolution 8. This grid contains the childran Zones of those in Grid 7"@en ;
+    dcterms:identifier "g8" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/9>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 9"@en ;
+    dcterms:description "DGGS Grid, resolution 9. This grid contains the childran Zones of those in Grid 8"@en ;
+    dcterms:identifier "g9" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/10>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 10"@en ;
+    dcterms:description "DGGS Grid, resolution 10. This grid contains the childran Zones of those in Grid 9"@en ;
+    dcterms:identifier "g10" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/11>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 11"@en ;
+    dcterms:description "DGGS Grid, resolution 11. This grid contains the childran Zones of those in Grid 10"@en ;
+    dcterms:identifier "g11" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/12>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 12"@en ;
+    dcterms:description "DGGS Grid, resolution 12. This grid contains the childran Zones of those in Grid 11"@en ;
+    dcterms:identifier "g12" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/13>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 13"@en ;
+    dcterms:description "DGGS Grid, resolution 13. This grid contains the childran Zones of those in Grid 12"@en ;
+    dcterms:identifier "g13" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/14>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 14"@en ;
+    dcterms:description "DGGS Grid, resolution 14. This grid contains the childran Zones of those in Grid 13"@en ;
+    dcterms:identifier "g14" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+
+<https://w3id.org/dggs/tb16pix/grid/15>
+    a ogcapi:Collection ;
+    dcterms:title "Grid 15"@en ;
+    dcterms:description "DGGS Grid, resolution 15. This grid contains the childran Zones of those in Grid 14"@en ;
+    dcterms:identifier "g15" ;
+    dcterms:isPartOf <https://w3id.org/dggs/tb16pix> ;
+.
+

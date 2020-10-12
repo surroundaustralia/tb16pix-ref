@@ -1,0 +1,17 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ogcapi: <https://data.surroundaustralia.com/def/ogcapi/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://w3id.org/dggs/tb16pix-api>
+    a ogcapi:OgcApi ;
+    dcterms:title "An OGC LD API for the TB16Pix reference dataset"@en ;
+    dcterms:description "An OGC LD API instance delivering the Zone and Cell values of the Testbed 16 (TB16) Pix DGGS Dataset"@en ;
+    dcat:servesDataset <https://w3id.org/dggs/tb16pix> ;
+    dcterms:created "2020-08-15"^^xsd:date ;
+    dcterms:modified "2020-10-12"^^xsd:date ;
+    dcterms:issued "2020-08-15"^^xsd:date ;
+    dcterms:publisher <https://surroundaustralia.com> ;
+    dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
+.
