@@ -51,6 +51,9 @@ class Geometry(object):
         else:
             return TypeError("Only WGS84 geometries can be serialised in GeoJSON")
 
+    def to_html_wkt(self):
+        return "<{}> {}".format(self.crs.value, self.coordinates)
+
 
 class Feature(object):
     def __init__(
@@ -218,8 +221,72 @@ class Tb16PixFeature(Feature):
         self.description = None
         self.isPartOf = "g{}".format(len(self.identifier))
         self.geometries = [
-            Geometry(self.identifier, GeometryRole.Area, "TB16Pix Cell Geometry", CRS.TB16PIX),
+            Geometry(
+                "POINT ({})".format(self.identifier),
+                GeometryRole.Area,
+                "TB16Pix Cell Geometry",
+                CRS.TB16PIX
+            ),
         ]
+
+        from rhealpixdggs.dggs import Cell
+
+        def _suid_from_string(zone_id):
+            if len(zone_id) == 1:
+                return [zone_id[0]]
+            else:
+                return [zone_id[0]] + [int(x) for x in zone_id[1:]]
+
+        c = Cell(TB16Pix, _suid_from_string(self.identifier))
+        centroid = c.nucleus(plane=False)
+        self.geometries.append(
+            Geometry(
+                "POINT ({} {})".format(centroid[0], centroid[1]),
+                GeometryRole.Centroid,
+                "WGS84 Cell centroid",
+                CRS.WGS84),
+        )
+        v = c.vertices(plane=False)
+
+        self.geometries.append(
+            Geometry(
+                "POLYGON (({0}, {1}, {2}, {3}, {0}))".format(
+                    "{} {}".format(v[0][0], v[0][1]),
+                    "{} {}".format(v[1][0], v[1][1]),
+                    "{} {}".format(v[2][0], v[2][1]),
+                    "{} {}".format(v[3][0], v[3][1])
+                ),
+                GeometryRole.Boundary,
+                "WGS84 Boundary",
+                CRS.WGS84),
+        )
+
+        URI_BASE_ZONE = Namespace("https://w3id.org/dggs/tb16pix/zone/")
+
+        def _calculate_parent(zone_id):
+            if len(zone_id) == 1:
+                return URI_BASE_ZONE + "Earth", "Earth"
+            else:  # <LETTER>...<LETTER><0-8>*9
+                return URI_BASE_ZONE + zone_id[:-1], zone_id[:-1]
+
+        self.parent = _calculate_parent(self.identifier)
+
+        def _calculate_children(zone_id):
+            if len(zone_id) < 15:
+                return [(URI_BASE_ZONE + zone_id + str(n), zone_id + str(n)) for n in range(9)]
+            else:
+                return None
+
+        self.children = _calculate_children(self.identifier)
+
+        def _calculate_neighbours(zone_id):
+            c = Cell(TB16Pix, _suid_from_string(zone_id))
+            neighbours = []
+            for k, v in sorted(c.neighbors().items()):
+                neighbours.append((k, str(v)))
+            return neighbours
+
+        self.neighbours = _calculate_neighbours(self.identifier)
 
         # Feature other properties
         self.extent_spatial = None
@@ -295,7 +362,8 @@ class FeatureRenderer(Renderer):
     def _render_oai_html(self):
         _template_context = {
             "links": self.links,
-            "feature": self.feature
+            "feature": self.feature,
+            "geometries": [(g.label, g.to_html_wkt()) for g in self.feature.geometries]
         }
 
         return Response(

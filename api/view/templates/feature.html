@@ -4,9 +4,52 @@
     <h1>{{ feature.title }}</h1>
   </div>
   <div id="maincontent">
+    <h4>URI</h4>
+    <p><a href="{{ url_for('feature_route', collection_id=feature.isPartOf, item_id=feature.identifier) }}">{{ feature.uri }}</a></p>
     {% if feature.description is not none %}
-      <div>{{ feature.description|safe }}</div>
+      <h4>Description</h4>
+      <p>{{ feature.description|safe }}</p>
     {% endif %}
+    {% if feature.parent is not none %}
+      <h4>Parent</h4>
+      <p><a href="{{ url_for('feature_route', collection_id=feature.isPartOf, item_id=feature.parent[1]) }}">{{ feature.parent[1] }}</a></p>
+    {% endif %}
+    {% if feature.neighbours is not none %}
+      <h4>Neighbours</h4>
+      <p>
+        <div style="display: grid; grid-template-columns: 100px 100px 100px; grid-template-rows: 50px 50px 50px; text-align:center;">
+        {% for x in feature.neighbours %}
+          {% if x[0] == "up" %}
+            {% set c = 2 %}
+            {% set r = 1 %}
+          {% elif x[0] == "down" %}
+            {% set c = 2 %}
+            {% set r = 3 %}
+          {% elif x[0] == "left" %}
+            {% set c = 1 %}
+            {% set r = 2 %}
+          {% else %}{# right #}
+            {% set c = 3 %}
+            {% set r = 2 %}
+          {% endif %}
+          <div style="grid-column: {{ c }}; grid-row: {{ r }};">
+          <a href="{{ url_for('feature_route', collection_id=feature.isPartOf, item_id=x[1]) }}">{{ x[1] }}</a>
+          </div>
+          <div style="grid-column: 2; grid-row: 2;">{{ label }}</div>
+        {% endfor %}
+        </div>
+      </p>
+    {% endif %}
+    {% if feature.children is not none %}
+      <dt>Children</dt>
+      <dd>
+        {% for c in feature.children %}
+        <a href="{{ url_for('feature_route', collection_id=feature.isPartOf, item_id=c[1]) }}">{{ c[1] }}</a>,
+        {% endfor %}
+      </dd>
+    {% endif %}
+    </dl>
+    <h4>Geometries</h4>
     {% if feature.geometries is not none %}
       <style>
         table.lined {
@@ -20,9 +63,9 @@
         }
       </style>
       <table class="lined">
-      {% for geometry in feature.geometries %}
+      {% for geometry in geometries %}
         <tr>
-          <td>{{ geometry.label }}</td><td><code>{{ geometry.coordinates }}</code></td>
+          <td>{{ geometry[0] }}</td><td><code>{{ geometry[1] }}</code></td>
         </tr>
       {% endfor %}
       </table>

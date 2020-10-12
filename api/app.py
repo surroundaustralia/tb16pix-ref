@@ -148,7 +148,6 @@ class FeatureRoute(Resource):
 
         # get URI
         uri = "https://w3id.org/dggs/tb16pix/zone/{}".format(item_id)
-        print(uri)
         return FeatureRenderer(request, uri).render()
 
         # return Response(
