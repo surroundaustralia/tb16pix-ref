@@ -13,9 +13,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 TB16Pix uses parameterisation to minimise the Zone changes over Canada.
 
 #### Example Collection
-* [Grid, resolution 2](/collections/2)
+* [Grid, resolution 2](/collections/g2)
 #### Example Feature
-* [Zone N05](/collections/2/items/N05)
+* [Zone N05](/collections/g2/items/N05)
 
 """@en ;
     prov:wasDerivedFrom <https://linked.data.gov.au/dataset/geofabric> ;

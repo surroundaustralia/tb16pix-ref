@@ -22,7 +22,6 @@ API_TITLE = "OGC LD API"
 VERSION = "1.1"
 
 DATASET_URI = "https://w3id.org/dggs/tb16pix"
-SPARQL_ENDPOINT = "http://localhost:7200/repositories/tb16pix_dggs"
 
 
 def get_graph():
